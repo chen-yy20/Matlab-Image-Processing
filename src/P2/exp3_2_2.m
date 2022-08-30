@@ -1,0 +1,10 @@
+close all, clear all; clc;
+% load("图像处理大作业\图像处理所需资源\JpegCoeff.mat");
+load('图像处理大作业\图像处理所需资源\hall.mat');
+small_hall_gray = hall_gray(1:8,1:8);
+small_hall_gray = double(small_hall_gray);
+ori_hall_gray = small_hall_gray-128;
+ori_dct = dct2(ori_hall_gray);
+new_dct = my_dct(ori_hall_gray);
+dis = sum(abs(new_dct-ori_dct),'all');
+disp(['变换后误差dis = ',num2str(dis)]);
